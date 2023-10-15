@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from database.models import db
 from blueprints.projects import bp as projects_bp
 from blueprints.bugs import bp as bugs_bp
@@ -10,6 +11,7 @@ app.register_blueprint(projects_bp)
 app.register_blueprint(bugs_bp)
 
 db.init_app(app)
+CORS(app)
 
 
 @app.route('/')
